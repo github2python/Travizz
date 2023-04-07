@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://kit.fontawesome.com/ecd6db5343.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+    <title>Home</title>
+
+</head>
+<body>
+    
+    <header id="body-header">
+        <nav class="Navigation">
+            <div class="cube">
+                <div class="one face">
+                U
+                </div>
+                <div class="two face">
+                 U
+                </div>
+                <div class="third face">
+                U
+                </div>
+                <div class="fourth face">
+                 U
+                </div>
+                <div class="fivth face">
+                 U
+                </div>
+                <div class="sixth face">
+                 U
+                </div>
+        
+             </div>
+           <div class="nav-head">
+            <ul>
+                <li>
+                    <a href="/home">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+       
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="/chat">
+                        Ask Query
+                    </a>
+                </li>
+                
+               
+                <li>
+                    <% if(currentUser) { %>
+                    <a href="/logout">
+                        Logout 
+                    </a>
+                    <% } else { %>
+                        <a href="/login">
+                            Login
+                        </a>
+                    <% } %>
+                </li>
+              </ul>
+           </div>
+          
+          
+        </nav>
+        
+    
+    </header>
+    <aside class="socialmedia">
+       
+           
+      <div class="social-container">
+        <div class="socialmedia">
+            <a id="facebook" class="social-btn" target="_blank" href="http://www.facebook.com"><img src="/images/fb.png" alt="fb"></a>
+    
+            <a id="linkedin" class="social-btn" target="_blank" href="https://www.linkedin.com"><img src="/images/linkedin1.png" alt="in"></a>
+    
+            <a id="twitter" class="social-btn" target="_blank" href="https://twitter.com"><img src="/images/twitter.png" alt="twi"></a>
+    
+           
+    
+            <a id="whatsapp" class="social-btn" target="_blank" href="http:whatsapp.com"><img src="/images/whatsapp.jpg" alt="w-app"></a>
+    
+            
+        </div>
+      </div>
+        
+      <body>
+        <div id="container" class="container">
+            <div id="chat" class="chat">
+                <div id="messages" class="messages"></div>
+                <form action="/chat" method="POST" novalidate>
+                    <input id="input" type="text" placeholder="Say something..." autocomplete="off" autofocus="true" name="input" value="input">  <button type="submit" value="submit">Submit</button>
+                </form>
+                  
+            </div>
+            <img src="/images/bot.png" alt="Robot cartoon" height="500vh">
+        </div>
+     
+    </body>
+
+
+
+    </main>
+    </script>
+</body>
+</html>
