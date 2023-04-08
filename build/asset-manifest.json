@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e96dad23.chunk.css",
+    "main.js": "/static/js/main.2d82bb4d.chunk.js",
+    "main.js.map": "/static/js/main.2d82bb4d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4e64986e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4e64986e.js.map",
+    "static/js/2.8b0ee47b.chunk.js": "/static/js/2.8b0ee47b.chunk.js",
+    "static/js/2.8b0ee47b.chunk.js.map": "/static/js/2.8b0ee47b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e488a6ed0e8e2e85c4d5b34c59818fc5.js": "/precache-manifest.e488a6ed0e8e2e85c4d5b34c59818fc5.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e96dad23.chunk.css.map": "/static/css/main.e96dad23.chunk.css.map",
+    "static/js/2.8b0ee47b.chunk.js.LICENSE": "/static/js/2.8b0ee47b.chunk.js.LICENSE",
+    "static/media/alfredo.png": "/static/media/alfredo.8e401ff8.png",
+    "static/media/bg_map.jpg": "/static/media/bg_map.343210ae.jpg",
+    "static/media/default-place.svg": "/static/media/default-place.eaeb2e6c.svg",
+    "static/media/lance.png": "/static/media/lance.361b072c.png",
+    "static/media/logo.jpg": "/static/media/logo.224a5067.jpg",
+    "static/media/walk.jpg": "/static/media/walk.a6c1c305.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e64986e.js",
+    "static/js/2.8b0ee47b.chunk.js",
+    "static/css/main.e96dad23.chunk.css",
+    "static/js/main.2d82bb4d.chunk.js"
+  ]
+}
