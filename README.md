@@ -19,8 +19,6 @@ TravelBizz is an app for creating trips. Users can select a start and end point 
 - User authentication (signup, login, logout)
 - Create, update and delete trip plan.
 - Display points of interest within a start and end point, filtered by category.
-- Add POIs to trip (bound within a start and end point).
-- View additional information (from Yelp) about a POI.
 - View all trips along with added POIs.
 
 ---
@@ -33,7 +31,7 @@ TravelBizz is an app for creating trips. Users can select a start and end point 
 - Server: Node.js
 - Language: HTML, CSS, JavaScript
 - State management: Redux
-- APIs: [MapQuest](https://developer.mapquest.com/), [Yelp Fusion](https://www.yelp.com/fusion)
+- APIs: [MapQuest](https://developer.mapquest.com/)
 
 ---
 
@@ -63,84 +61,6 @@ router.patch("/:tripId", tripsController.updateTrip);
 router.delete("/:tripId", tripsController.deleteTrip);
 ```
 
-And delegating responsabilities to **tripsController** (only showing _createTrip_ and _deleteTrip_ for readability)
-
-```javascript
-exports.createTrip = (req, res) => {
-  const { errors, isValid } = validateTrip(req.body);
-
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-  const newTrip = new Trip({
-    user: req.user.id,
-    name: req.body.name,
-    origin: req.body.origin,
-    destination: req.body.destination,
-  });
-
-  newTrip.save().then((trip) => res.json(trip));
-};
-
-exports.deleteTrip = (req, res) => {
-  Trip.findById(req.params.tripId)
-    .then((trip) => {
-      trip.remove().then(() => res.json(trip));
-    })
-    .catch((err) =>
-      res.status(404).json({ notripfound: "No trip found with that ID" })
-    );
-};
-```
-
----
-
-## Filtering POIs by Categories
-
-<div align="center">
-    <img width=80% src="https://media.giphy.com/media/kGvJlUvJC2xgrH1BPY/giphy.gif">
-</div>
-
-<br>
-
-```javascript
-filterMap() {
-    for (let layer of this.markers) {
-      this.map.removeLayer(layer);
-    }
-    this.filteredPoints = [];
-    if (this.state.value.length > 0) {
-      for (let pt of this.pointsOfInterest) {
-        if (pt.fields.group_sic_code.startsWith(this.state.value)) {
-          this.filteredPoints.push(pt);
-          let curMarker = window.L.marker(pt.shapePoints, {
-            icon: window.L.mapquest.icons.marker({
-              shadow: false
-            }),
-            draggable: false,
-            opacity: 0.5
-          });
-          curMarker
-            .bindPopup(
-              pt.name + "<br/>" + pt.fields.address + ", " + pt.fields.city
-            )
-            .addTo(this.map);
-          this.markers.push(curMarker);
-        }
-      }
-    }
-  }
-
-const options = [
-      { value: '5812', label: 'Restaurants' },
-      { value: '8412', label: 'Museums' },
-      { value: '799', label: 'Parks' },
-      { value: '5813', label: 'Bars' },
-      { value: '5942', label: 'Books' },
-      { value: '602101', label: 'ATM' },
-      { value: '5461', label: 'Bakeries' }
-];
-```
 
 ---
 
@@ -331,4 +251,3 @@ drawRoute(routeProps) {
 - [Lavkesh Kumar]
 - [Brij Mohan Singh]
 - [Priyam]
-  > > > > > > > 7347b0ab43ffdc98f7d28cc7755cb5b50024e6f0
