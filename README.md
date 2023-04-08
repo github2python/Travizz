@@ -140,8 +140,7 @@ fetchMapData(boundingBoxParam) {
 
 ```
 module.exports = {
-  MAP_KEY: <YOUR_MAPBOX_API_KEY_HERE>,
-  YELP_KEY: <YOUR_YELP_API_KEY_HERE>
+  MAP_KEY: <YOUR_MAPBOX_API_KEY_HERE>
 };
 ```
 
@@ -173,32 +172,7 @@ The Database Tier (Model) is hosted using MongoDB. This is where all of the cruc
 
 ### Challenge
 
-1. **CORS Error**<br>
-   When working with MapBox API and Yelp API in the application code, there is CORS error `....has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource`. This is a common thing caused by same-origin policy to prevent cross-site request forgery. To fix this, the application using cors-anywhere proxy server to add CORS header to a request. The cors-anywhere proxy server operates in between the frontend web app making the request, and the server that responds with data.
-
-```javascript
-axios.get(
-  `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search?location=${
-    this.props.city
-  }`,
-  {
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      accept: "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "X-Requested-With": "XMLHttpRequest",
-    },
-    params: {
-      term: this.props.name,
-    },
-    paramsSerializer: (params) => {
-      return qs.stringify(params);
-    },
-  }
-);
-```
-
-2.  **Draw Map and Trip Route**<br>
+1.  **Draw Map and Trip Route**<br>
     The main challenge for this project is try to understand how to build map using MapBox, draw route based on start and end point of user input and collect the POIs along and near the route.
 
         Draw Map
