@@ -19,7 +19,6 @@ TravelBizz is an app for creating trips. Users can select a start and end point 
 - User authentication (signup, login, logout)
 - Create, update and delete trip plan.
 - Display points of interest within a start and end point, filtered by category.
-- View all trips along with added POIs.
 
 ---
 
