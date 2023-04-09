@@ -1,0 +1,207 @@
+.content {  
+  height: 100%;
+}
+
+.navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  padding-left: 3%;  
+  padding-right: 3%;
+}
+
+main {  
+  display: flex;
+  height: 80%;    
+}
+
+.user_trips {
+  background-image: url(/static/media/bg_map.343210ae.jpg);
+  background-size: cover;  
+  background-position: center center;
+  overflow-y: scroll;
+}
+
+.main-wrapper {
+  height: 80%;
+  background-color: #333;
+}
+
+.title {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+#logo-container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;  
+  color: #fff;  
+}
+
+#logo-container > i {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+footer {
+  height: 10%;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  background-color: #333;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.logout .btn {
+  background-color: #cf513d;
+  border: 2px solid transparent;  
+  color: #ffffff;  
+}
+
+.logout .btn:hover {
+  background-color: #eb5a46;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #5aac44;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  color: #ffffff;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.btn-success:hover {
+  cursor: pointer;
+  background-color: #61bd4f;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 1.25rem;
+  border-radius: 6px;
+  -webkit-transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn a:link,
+.btn a:visited {
+  color: #fff;
+}
+
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+}
+
+.new-trip {
+  margin: 6px 12px;
+}
+
+.new-trip i {
+  display: none;
+}
+
+/* line 272, /Users/alfredosumosav/Desktop/trallo/app/assets/stylesheets/static_pages.scss */
+.new-trip .btn {
+  color: #000;
+  background-color: white;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* line 279, /Users/alfredosumosav/Desktop/trallo/app/assets/stylesheets/static_pages.scss */
+.new-trip:hover .btn {
+  border: 1px solid #454545;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.logo-thumb {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  height: 90%;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+
+
+/* IDs */
+
+#welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome .title {
+  color: #fff;
+}
+
+#welcome .title .username:visited {
+  color: #fff;
+}
+
+#session-actions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login {  
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  padding: 0.25rem;
+}
+
+#logo {
+  color: #ffffff;
+  font-size: 2.5rem;
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;  
+}
+
+#signup {
+  /* background-color: white; */  
+  border: 1px solid transparent;
+  /* border-radius: .2rem; */
+  padding: 0.25rem;
+}
+
+#signup a:visited {
+  text-decoration: none;
+}
+
+#signup:hover {
+  text-decoration: none;
+}

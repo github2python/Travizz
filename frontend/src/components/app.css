@@ -1,0 +1,48 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+a:hover, a:focus {
+  color: #AF305C;
+}
+
+a:visited {
+  color: #fff;
+}
+
+footer .content {
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+footer .content span {
+  margin: 0 5px;
+}
+
+footer .content > a {
+  display: inline-block;  
+}
+
+footer .content.large {
+  height: 150px;
+}
+
+footer .content.small .avatar {
+  height: 64px;
+}
+
+.avatar {
+  z-index: 10;
+}

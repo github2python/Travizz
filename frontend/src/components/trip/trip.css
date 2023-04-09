@@ -1,0 +1,240 @@
+.bbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0px solid transparent;
+  border-radius: 3px;
+  z-index: -1;
+}
+
+.card .delete {
+  margin-top: 5px;
+}
+
+#place-search-input {
+  height: 44px;
+}
+
+#place-search-form div input {
+  margin-bottom: 15px;
+}
+
+#place-search-form .form-button {
+  margin-top: 10px;
+}
+
+#place-search-form .btn {
+  margin-right: 20px;
+}
+
+.form-label {
+  color: white;
+  font-size: 2em;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.share-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout {
+  display: flex;
+}
+
+.share-btn {
+  margin: 0 10px;
+  opacity: 0.73;
+}
+
+.share-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.trip-show-container {
+  margin-bottom: 20px;
+}
+
+.trip-name {
+  padding-bottom: 8px;
+  font-weight: 700;
+}
+
+.row {
+  display: flex; 
+  padding-bottom: 5px; 
+}
+
+.place-icon {
+  padding-top: 2px;
+}
+
+.place-info {
+  margin-left: 5px;
+}
+
+.place-name {  
+  font-weight: 700;
+}
+
+.place-detail, .place-name {
+  font-size: 0.87em;  
+  line-height: 1.3em;
+}
+
+.my-trip-header {
+  display: flex;
+}
+
+.my-trip-label {
+  min-width: 75px;
+}
+
+.my-trip-share {
+  height: 20px;
+}
+
+.menu-open{
+  display:none;
+}
+
+.menu-open-button {
+  background:white;
+}
+
+.menu-item, .menu-open-button {  
+  border-radius:100%;
+  width:40px;
+  height:40px;
+  margin-left:-40px;
+  position:absolute;
+  top:12px;
+  color:white;
+  text-align:center;
+  /* line-height:50px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform:translate3d(0,0,0);
+  transition:transform ease-out 200ms;  
+}
+
+
+.menu{
+  filter:url('#goo');  
+  position:absolute;
+  left:125px;  
+  padding-top:20px;  
+  box-sizing:border-box;
+  font-size:20px;
+  text-align:left;
+}
+
+
+.menu-item {  
+  transition-duration:180ms;    
+}
+
+.menu-item:hover {
+  background:white;
+  color:#e91e63;
+}
+
+.menu-open-button{  
+  z-index:2;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration:400ms;
+  transform:scale(1.1,1.1) translate3d(0,0,0);
+  cursor:pointer;
+}
+.menu-open-button:hover{
+  transform:scale(1.2,1.2) translate3d(0,0,0);
+}
+.menu-open:checked+.menu-open-button{
+  transition-timing-function:linear;
+  transition-duration:200ms;
+  transform:scale(0.8,0.8) translate3d(0,0,0);
+}
+
+.menu-open:checked~.menu-item{
+  transition-timing-function:cubic-bezier(0.935, 0.000, 0.340, 1.330);   
+}
+
+.menu-open:checked~.menu-item:nth-child(3) {
+    -webkit-transition-duration: 280ms;
+    transition-duration: 280ms;
+    -webkit-transform: translate3d(42.54827px, 0.33446px, 0);
+    transform: translate3d(42.54827px, 0.33446px, 0);
+}
+
+.menu-open:checked~.menu-item:nth-child(4) {
+    -webkit-transition-duration: 380ms;
+    transition-duration: 380ms;
+    -webkit-transform: translate3d(84.99947px, 0.33446px, 0);
+    transform: translate3d(84.99947px, 0.33446px, 0);
+}
+
+.menu-open:checked~.menu-item:nth-child(5) {
+    -webkit-transition-duration: 480ms;
+    transition-duration: 480ms;
+    -webkit-transform: translate3d(127.54827px, 0.33446px, 0);
+    transform: translate3d(127.54827px, 0.33446px, 0);
+}
+
+.poi > div:not(:nth-child(1)) {
+  font-size: 0.83em;
+  line-height: 1.3em;
+  margin-left: 18px;
+}
+
+.poi-list, .poi-list li  {
+  position: relative;
+}
+
+.poi-list div.waypoint-number {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+}
+
+.poi-list:before {
+  content: "";
+  height: 100%;
+  width: 5px;
+  background: rgba(10, 146, 192, 0.5);
+  position: absolute;  
+  transform: translateX(1%);
+  top: -5px;  
+}
+
+.poi-list li {
+  margin-bottom: 10px;
+}
+
+.poi-list li span {  
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: block;
+  background: rgba(0,0,0); /*  rgba(47,166,205, 0.5); */
+  position: absolute;
+  left: -4px;  
+  transform: translateX(-12%); 
+}
+
+.poi-list li span:before {
+  content: '';
+  height: 15px;
+  width: 15px;
+  background: rgba(255, 255, 255, 0.945);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);  
+}

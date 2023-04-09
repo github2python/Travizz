@@ -1,0 +1,232 @@
+@media screen and (max-aspect-ratio: 1/1) { 
+   .landing {
+      flex-direction: column-reverse;
+      justify-content: center;
+   }
+
+   .landing-image {
+      width: 100%;
+   }
+
+   .landing-text {
+      width: 98%;
+   }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+   .landing-text h1 {
+      font-size: 7vh;
+   }
+
+   p.desc, .btn.get-started {
+      font-size: 2.5vh;
+   }
+
+   .title {
+      font-size: 14px;
+   }
+
+   .navbar span {
+      display: none;
+   }
+
+   .new-trip .btn {
+      background: transparent;      
+   }
+
+   .new-trip i {
+      background: url("/new-trip-icon.png") no-repeat center center;      
+      background-size: cover;
+      display: block;
+      width: 40px;
+      height: 40px;
+   }
+
+   .trips-list {
+      width: auto !important;
+   }
+
+   .logout .btn {
+      border-radius: 10px; 
+   }  
+
+   .logout i {
+      background: url("/sign-out-icon.png") no-repeat center center;
+      background-size: cover;
+      display: block;
+      width: 32px;
+      height: 32px;
+   }   
+
+   .avatar {
+      height: 32px !important;      
+   }
+
+   #session-form {
+      width: 50vmin;
+   }
+
+   .trip-control-bar button {
+      font-size: 14px !important;
+   }
+}
+
+
+/* Screen device 768px and down */
+@media only screen and (max-width: 768px) {
+   #logo {
+      font-size: 1.5rem;
+   }
+
+   #session-form {
+      width: 40vmin;
+   }
+
+   .trips-list {
+      width: 650px;
+   }   
+
+   .main-content {
+      display: flex;
+      flex-direction: column-reverse;
+   }
+
+   .trip-details {
+      width: 99.5%;    
+      min-height: 40px;
+   }
+
+   .trip-control-bar {
+      display: flex;
+   }
+
+   .trip-control-bar button {
+      width: 20%;
+      font-size: 1.25em;
+   }
+
+   .trip-details-list {
+      width: 80%;
+   }
+
+   .trip-detail-container {
+      display: none;
+      width: 100%;      
+   }
+   
+   .trip-show-detail {
+      padding-bottom: 50px;
+   } 
+   
+   #map {
+      width: 100%;
+   }
+
+   .modal-content {
+      margin: 25vh auto;
+   }
+
+   footer {
+      font-size: 16px;      
+   }
+
+   .avatar {
+      height: 75px;
+   }
+}
+
+/* Medium devices (landscape tablets, 769px and up) */
+@media only screen and (min-width: 769px) {   
+   .main-content {
+      display: flex;         
+   }
+
+   #map {
+      width: 80%;
+   }
+
+    .trip-details-list {
+      width: 300px;
+   }
+
+   .trip-detail-container {
+      width: 292px;
+   }
+
+   .trip-details {
+      height: 100%;
+   }
+
+   .trip-control-bar button {
+      display: none;
+   }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+   .trips-list {
+      width: 75%;
+   }
+
+   .landing-text h1 {
+      font-size: 7vmin;
+   }
+
+   p.desc, .btn.get-started {
+      font-size: 2.5vmin;
+   }
+
+   .avatar {
+      height: 150px;
+   }
+
+   .tooltip {
+      position: relative;
+   }
+
+   .tooltip:before {      
+      content: attr(data-tooltip);
+      display: none;
+      position: absolute;
+      top: -65px;
+      width: 200px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.8);
+      text-align: center;      
+   }
+
+   .tooltip:after {
+      content: "";
+      display: none;
+      position: absolute;      
+      top: -23px;
+      left: 50%;
+      border: 10px solid rgba(0, 0, 0, 0.8);
+      border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+   }
+
+   .tooltip:hover {
+      transform: translateY(-20px);
+   }
+
+   .tooltip:hover:before, .tooltip:hover:after {
+      display:block;
+      animation: fadeIn .5s ease-in;
+   }   
+
+   @keyframes fadeIn {
+      from {
+         opacity: 0;
+      }
+         
+      to {
+         opacity: 1;
+      }
+   }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  
+}
