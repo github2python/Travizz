@@ -1,0 +1,132 @@
+<div class='container profile'>
+  <div class='row'>
+    <div class='col-12 new-trip-button-div'>
+      <button type="button" class="new-trip-button btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Create New Trip                
+      </button>
+    </div>
+  </div>
+  <div class='row'>
+      <div class='col-12'>
+          <h1><%= user.name %>'s TravelBizz</h1>
+      </div>
+  </div>
+  <div class='list-group'>
+      <% trips.forEach(function(t) { %>
+
+        <div class="card" style="width: 90%;">
+            <div class="card-body">
+              <div class='row'>
+                <div class='col-6'>
+                  <h4 class="card-title">Trip Name: <%= t.name %></h4>
+                </div>
+                <div class='col-6 date-show'>
+                  <h6 class="card-title"><%= t.startDate.toDateString() %> to <%= t.endDate.toDateString() %></h6>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-12'>
+                  <h6 class="card-subtitle mb-2 text-muted">Location: <%= t.locale %></h6>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-6'>
+                  <p class="card-text">Description: <%= t.description %></p>
+                </div>
+                <div class='col-6 details-show'>
+                  <a class="btn btn-primary" href="/trips/<%= t._id %>">View Trip Itinerary</a>
+                </div>
+              </div>
+            </div>
+        </div>
+      <% }) %> 
+  </div>
+
+  <div class='row'>
+    <div class='col-12 profile-edit'>
+      <form action="/users/profile/edit">
+        <button class="btn btn-info" type="submit" id="update">
+          Edit Profile
+        </button>
+      </form>	
+    </div>
+  </div>
+  
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Trip</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/users/profile" method="POST">
+          <div class="form-group">
+            <label for="name">Trip Name*</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+          <div class="form-group" data-provide="datepicker">
+            <label for="startDate">Start Date*</label>
+            <input type="text" class="form-control" name="startDate">
+        </div>
+        <div class="form-group" data-provide="datepicker">
+            <label for="endDate">End Date*</label>
+            <input type="text" class="form-control" name="endDate">
+        </div>
+          <div class="form-group">
+            <label for="local">Location*</label>
+            <input type="text" class="form-control" name="locale">
+        </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="textarea" class="form-control" name="description">
+        </div>
+        <button id="submit" type="submit" class="btn btn-primary">Add Your Trip</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Datepicker
+$('.datepicker').datepicker()
+$('.datepicker').datepicker({
+  format: 'mm/dd/yyyy',
+  startDate: '-3d'
+})
+$('.datepicker').datepicker({
+  startDate: '-3d'
+})
+
+$('#submit').on('submit', (evt) => {
+  console.log('you clicked something')
+  //var newTrip = new Trip(req.body)
+  //newTrip.user = req.user._id
+  //newTrip.save((err, trip) => {
+    //console.log(trip)
+  //})
+  var formData = {
+    "name": $('input[name=name').val(),
+    "length": $('input[name=length').val(),
+    "locale": $('input[name=locale').val()
+  }
+  $.ajax({
+    url: '/users/profile',
+    method: 'POST',
+    data: formData,
+    dataType: 'json'
+  })
+  .done((data) => {
+    console.log(data)
+  })
+  evt.preventDefault()
+  })
+</script>

@@ -23,15 +23,16 @@ mongoose
   .catch(err => console.log(err));
 
 // Serve static assets and index.html in production
-if (process.env.NODE_ENV === "production") {
-  // Serve static assets
-  app.use(express.static("frontend/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-  });
-} else {
-  app.get("/", (req, res) => res.send("Hello World!!"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   // Serve static assets
+//   app.use(express.static("frontend/build"));
+//   app.get("/", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+//   });
+// }
+//  else {
+  // app.get("/", (req, res) => res.send("Hello World!!"));
+// }
 
 /**
  * MIDDLEWARE
@@ -39,26 +40,6 @@ if (process.env.NODE_ENV === "production") {
 // setup middleware to parse incoming request
 // urlencoded means to let server response json from other software (nested object) ), like Post,ans
 // Allow access on headers and avoid CORS issues
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Access, Authorization, x-access-token"
-  );
-
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, PATCH, DELETE");
-
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Access, Authorization, x-access-token"
-    );
-
-    return res.status(200).json({});
-  }
-
-  next();
-});
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
@@ -88,8 +69,27 @@ app.use(bodyParser.json());
   app.use("/api/trips", trips);
   app.use("/api/pois", pois);
 
-app.get("/weather",(req,res)=>{
-});
+
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Access, Authorization, x-access-token"
+    );
+  
+    if (req.method === "OPTIONS") {
+      res.header("Access-Control-Allow-Methods", "GET, PUT, POST, PATCH, DELETE");
+  
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Access, Authorization, x-access-token"
+      );
+  
+      return res.status(200).json({});
+    }
+  
+    next();
+  });
 //Set server port
 const port = process.env.PORT || 5000;
 
