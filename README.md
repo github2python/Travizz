@@ -219,10 +219,9 @@ drawRoute(routeProps) {
 ```
 
 
-## Hardware device to help driver in drowsiness state
+# Hardware device to help driver in drowsiness state
 
-- we propose a hardware tool which through a pre trained ML model analyzes the facial patterns of person driving for drowsiness detection and alerts with a beep so that driver is cautioned leading to prevention of accident.
-
+- we propose a hardware tool which through a trained ML model analyzes the facial patterns of person driving in real time video of camera  of user for drowsiness detection and alerts with a beep so that driver is cautioned leading to prevention of accident.
 
 
 ## Languages/tech
@@ -244,7 +243,7 @@ drawRoute(routeProps) {
 </div>
 
 
-### Basic Pipeline of Model
+### Pipeline of trained Model
 
 <div align="center">
     <img width=80% src="https://github.com/github2python/hackfest_2k23/blob/main/drowsiness_detector.model%20(1).png">
