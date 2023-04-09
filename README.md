@@ -1,6 +1,6 @@
 # Project Overview
 
-TravelBizz is an app for creating trips. Users can select a start and end point on the map, while seeing their points of interest in between the route through well updated maps and can add the journey in a wishlist while analyzing realtime weather analysis and prediction of weather for desired locations upto 5 days.
+TravelBizz is an app for creating trips. Users can select a start and end point on the map, while seeing their points of interest in between the route through well updated maps and can add the journey in a wishlist while analyzing realtime weather analysis and prediction of weather for desired locations upto 5 days.Our goal is to help a person manage his journeys and list them according to his deadlines and make a wishlist of probable journeys by analyzing realtime weather of the destinations their routes involved, through updated and defined maps. Further for the safety of driver inside the vehicle we propose a hardware tool which through a pre trained ML model analyzes the facial patterns of person driving for drowsiness detection and alerts with a beep so that driver is cautioned leading to prevention of accident. Also, we think that for future perspective the hardware can also slow down the vehicle and if needed can shut it down for the safety of the driver.
 
 ---
 
@@ -19,9 +19,6 @@ TravelBizz is an app for creating trips. Users can select a start and end point 
 - User authentication (signup, login, logout)
 - Create, update and delete trip plan.
 - Display points of interest within a start and end point, filtered by category.
-- Add POIs to trip (bound within a start and end point).
-- View additional information (from Yelp) about a POI.
-- View all trips along with added POIs.
 
 ---
 
@@ -33,7 +30,7 @@ TravelBizz is an app for creating trips. Users can select a start and end point 
 - Server: Node.js
 - Language: HTML, CSS, JavaScript
 - State management: Redux
-- APIs: [MapQuest](https://developer.mapquest.com/), [Yelp Fusion](https://www.yelp.com/fusion)
+- APIs: [MapQuest](https://developer.mapquest.com/)
 
 ---
 
@@ -63,84 +60,6 @@ router.patch("/:tripId", tripsController.updateTrip);
 router.delete("/:tripId", tripsController.deleteTrip);
 ```
 
-And delegating responsabilities to **tripsController** (only showing _createTrip_ and _deleteTrip_ for readability)
-
-```javascript
-exports.createTrip = (req, res) => {
-  const { errors, isValid } = validateTrip(req.body);
-
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-  const newTrip = new Trip({
-    user: req.user.id,
-    name: req.body.name,
-    origin: req.body.origin,
-    destination: req.body.destination,
-  });
-
-  newTrip.save().then((trip) => res.json(trip));
-};
-
-exports.deleteTrip = (req, res) => {
-  Trip.findById(req.params.tripId)
-    .then((trip) => {
-      trip.remove().then(() => res.json(trip));
-    })
-    .catch((err) =>
-      res.status(404).json({ notripfound: "No trip found with that ID" })
-    );
-};
-```
-
----
-
-## Filtering POIs by Categories
-
-<div align="center">
-    <img width=80% src="https://media.giphy.com/media/kGvJlUvJC2xgrH1BPY/giphy.gif">
-</div>
-
-<br>
-
-```javascript
-filterMap() {
-    for (let layer of this.markers) {
-      this.map.removeLayer(layer);
-    }
-    this.filteredPoints = [];
-    if (this.state.value.length > 0) {
-      for (let pt of this.pointsOfInterest) {
-        if (pt.fields.group_sic_code.startsWith(this.state.value)) {
-          this.filteredPoints.push(pt);
-          let curMarker = window.L.marker(pt.shapePoints, {
-            icon: window.L.mapquest.icons.marker({
-              shadow: false
-            }),
-            draggable: false,
-            opacity: 0.5
-          });
-          curMarker
-            .bindPopup(
-              pt.name + "<br/>" + pt.fields.address + ", " + pt.fields.city
-            )
-            .addTo(this.map);
-          this.markers.push(curMarker);
-        }
-      }
-    }
-  }
-
-const options = [
-      { value: '5812', label: 'Restaurants' },
-      { value: '8412', label: 'Museums' },
-      { value: '799', label: 'Parks' },
-      { value: '5813', label: 'Bars' },
-      { value: '5942', label: 'Books' },
-      { value: '602101', label: 'ATM' },
-      { value: '5461', label: 'Bakeries' }
-];
-```
 
 ---
 
@@ -217,12 +136,11 @@ fetchMapData(boundingBoxParam) {
 
 1. Fork and clone the repository.
 2. Install all dependencies by running `npm install` from root directory and frontend folder in the terminal.
-3. Update the MapBox API key and Yelp API key by create config/keys_dev.js and write this code:
+3. Update the MapBox API key by create config/keys_dev.js and write this code:
 
 ```
 module.exports = {
-  MAP_KEY: <YOUR_MAPBOX_API_KEY_HERE>,
-  YELP_KEY: <YOUR_YELP_API_KEY_HERE>
+  MAP_KEY: <YOUR_MAPBOX_API_KEY_HERE>
 };
 ```
 
@@ -254,32 +172,7 @@ The Database Tier (Model) is hosted using MongoDB. This is where all of the cruc
 
 ### Challenge
 
-1. **CORS Error**<br>
-   When working with MapBox API and Yelp API in the application code, there is CORS error `....has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource`. This is a common thing caused by same-origin policy to prevent cross-site request forgery. To fix this, the application using cors-anywhere proxy server to add CORS header to a request. The cors-anywhere proxy server operates in between the frontend web app making the request, and the server that responds with data.
-
-```javascript
-axios.get(
-  `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search?location=${
-    this.props.city
-  }`,
-  {
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      accept: "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "X-Requested-With": "XMLHttpRequest",
-    },
-    params: {
-      term: this.props.name,
-    },
-    paramsSerializer: (params) => {
-      return qs.stringify(params);
-    },
-  }
-);
-```
-
-2.  **Draw Map and Trip Route**<br>
+1.  **Draw Map and Trip Route**<br>
     The main challenge for this project is try to understand how to build map using MapBox, draw route based on start and end point of user input and collect the POIs along and near the route.
 
         Draw Map
@@ -325,16 +218,40 @@ drawRoute(routeProps) {
   }
 ```
 
-### Team
 
-# [Alfredo Sumosa](https://github.com/alfredosumosav), [Renata Santoso](https://github.com/resant18), [Tim Scatterday](https://github.com/timscatterday), [Lance Wong](https://github.com/LanceSanity)
+## Hardware device to help driver in drowsiness state
+
+- we propose a hardware tool which through a pre trained ML model analyzes the facial patterns of person driving for drowsiness detection and alerts with a beep so that driver is cautioned leading to prevention of accident.
+
+
+
+## Languages/tech
+
+- Numerical Computation : Numpy
+- Data wrangling: pandas
+- Framesorks : Tensorflow, pytorch
+- Liberies :  Scikit Learn , OpenCv
+- Visulaztion : Matplotlib,Seaborn
 
 ---
 
+
+### Basic Pipeline of device 
+
+
+
+### Basic Pipeline of Model
+
+<div align="center">
+    <img width=80% src="">
+</div>
+
+
+
+
 ## Team
 
-- [Alfredo Sumosa](https://github.com/alfredosumosav)
-- [Renata Santoso](https://github.com/resant18)
-- [Tim Scatterday](https://github.com/timscatterday)
-- [Lance Wong](https://github.com/LanceSanity)
-  > > > > > > > 7347b0ab43ffdc98f7d28cc7755cb5b50024e6f0
+- [Divyanshu Tyagi]
+- [Lavkesh Kumar]
+- [Brij Mohan Singh]
+- [Priyam]
