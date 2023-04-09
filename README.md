@@ -238,12 +238,16 @@ drawRoute(routeProps) {
 
 ### Basic Pipeline of device 
 
+<div align="center">
+    <img width=80% src="https://github.com/github2python/hackfest_2k23/blob/main/1.png">
+    <img width=80% src="https://github.com/github2python/hackfest_2k23/blob/main/2.png">
+</div>
 
 
 ### Basic Pipeline of Model
 
 <div align="center">
-    <img width=80% src="">
+    <img width=80% src="https://github.com/github2python/hackfest_2k23/blob/main/drowsiness_detector.model%20(1).png">
 </div>
 
 
