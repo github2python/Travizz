@@ -1,5 +1,6 @@
 {
-  "name": "RoutePlan",
+  "name": "Travizz",
+  "homepage": "https://github.com/github2python/Travizz",
   "version": "1.0.0",
   "description": "Route Trip Planner",
   "main": "app.js",
@@ -13,8 +14,11 @@
   },
   "scripts": {
     "server:debug": "nodemon --inspect app.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "server": "nodemon app.js",
-    "start": "node app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
@@ -30,7 +34,6 @@
   "bugs": {
     "url": "https://github.com/resant18/routeplan/issues"
   },
-  "homepage": "https://github.com/resant18/routeplan#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -39,17 +42,19 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.11",
+    "openai": "^3.2.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "qs": "^6.9.1",
     "react-modal": "^3.11.1",
+    "react-scripts": "^5.0.1",
     "react-select": "^3.0.8",
     "react-share": "^3.0.1",
     "validator": "^12.0.0",
-    "yelp-fusion": "^3.0.0",
-    "openai": "^3.2.1"
+    "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "nodemon": "^1.19.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6"
